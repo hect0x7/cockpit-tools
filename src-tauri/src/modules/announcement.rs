@@ -7,8 +7,7 @@ use std::path::{Path, PathBuf};
 use super::config;
 use super::logger;
 
-const ANNOUNCEMENT_URL: &str =
-    "https://raw.githubusercontent.com/jlcodes99/cockpit-tools/main/announcements.json";
+const ANNOUNCEMENT_URL: &str = "";
 const ANNOUNCEMENT_CACHE_FILE: &str = "announcement_cache.json";
 const ANNOUNCEMENT_FORCE_REFRESH_ATTEMPTS_FILE: &str =
     "announcement_force_refresh_attempt_versions.json";
@@ -935,32 +934,16 @@ fn filter_sponsor_module(
 }
 
 async fn fetch_remote_announcements() -> Result<AnnouncementResponse, String> {
-    logger::log_info("[Announcement] 从远端拉取公告");
-
-    let client = reqwest::Client::builder()
-        .user_agent("Cockpit-Tools")
-        .timeout(std::time::Duration::from_secs(10))
-        .build()
-        .map_err(|e| format!("创建公告 HTTP 客户端失败: {}", e))?;
-
-    let url = format!("{}?t={}", ANNOUNCEMENT_URL, Utc::now().timestamp_millis());
-
-    let response = client
-        .get(url)
-        .header("Cache-Control", "no-cache")
-        .header("Pragma", "no-cache")
-        .send()
-        .await
-        .map_err(|e| format!("拉取远端公告失败: {}", e))?;
-
-    if !response.status().is_success() {
-        return Err(format!("远端公告接口返回异常状态: {}", response.status()));
-    }
-
-    response
-        .json()
-        .await
-        .map_err(|e| format!("解析远端公告失败: {}", e))
+    Ok(AnnouncementResponse {
+        version: "1.0".to_string(),
+        force_refresh_versions: Vec::new(),
+        announcements: Vec::new(),
+        top_right_ad: None,
+        api_relay_enabled: true,
+        top_right_ads_enabled: true,
+        top_right_ads: Vec::new(),
+        sponsor_module: None,
+    })
 }
 
 fn should_force_refresh_for_version(payload: &AnnouncementResponse, current_version: &str) -> bool {
@@ -1099,48 +1082,15 @@ pub async fn get_announcement_state() -> Result<AnnouncementState, String> {
 }
 
 pub async fn get_top_right_ad_state() -> Result<TopRightAdState, String> {
-    let current_version = env!("CARGO_PKG_VERSION");
-    let locale = config::get_user_config().language.to_lowercase();
-    let raw_payload = load_announcements_raw().await?;
-    if !raw_payload.top_right_ads_enabled {
-        return Ok(TopRightAdState {
-            ad: None,
-            ads: Vec::new(),
-        });
-    }
-
-    let ad = filter_top_right_ad(
-        raw_payload.top_right_ad,
-        current_version,
-        &locale,
-        raw_payload.api_relay_enabled,
-    );
-    let ads = filter_top_right_ads(
-        raw_payload.top_right_ads,
-        current_version,
-        &locale,
-        raw_payload.api_relay_enabled,
-    );
-    Ok(TopRightAdState { ad, ads })
+    Ok(TopRightAdState { ad: None, ads: Vec::new() })
 }
 
 pub async fn get_sponsor_module_state() -> Result<SponsorModuleState, String> {
-    let current_version = env!("CARGO_PKG_VERSION");
-    let locale = config::get_user_config().language.to_lowercase();
-    let raw_payload = load_announcements_raw().await?;
-    if !raw_payload.api_relay_enabled {
-        return Ok(SponsorModuleState {
-            sponsor_module: None,
-        });
-    }
-    let sponsor_module =
-        filter_sponsor_module(raw_payload.sponsor_module, current_version, &locale);
-    Ok(SponsorModuleState { sponsor_module })
+    Ok(SponsorModuleState { sponsor_module: None })
 }
 
 pub async fn force_refresh_sponsor_module() -> Result<SponsorModuleState, String> {
-    remove_cache()?;
-    get_sponsor_module_state().await
+    Ok(SponsorModuleState { sponsor_module: None })
 }
 
 pub async fn mark_announcement_as_read(id: &str) -> Result<(), String> {

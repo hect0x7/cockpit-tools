@@ -4168,9 +4168,6 @@ export function CodexModelProviderManager({
                           preset.name,
                         )}
                       </span>
-                      {preset.isPartner && (
-                        <Star size={12} className="api-provider-chip-badge" />
-                      )}
                     </button>
                   ))}
                 </div>

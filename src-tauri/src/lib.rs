@@ -182,11 +182,9 @@ pub fn run() {
                 modules::webkit_cache_maintenance::checkpoint_webkit_localstorage();
             });
 
-            // 初始化 Updater 插件
+            // 初始化 Process 插件
             #[cfg(desktop)]
             {
-                app.handle()
-                    .plugin(tauri_plugin_updater::Builder::new().build())?;
                 app.handle().plugin(tauri_plugin_process::init())?;
                 app.handle().plugin(tauri_plugin_autostart::init(
                     tauri_plugin_autostart::MacosLauncher::LaunchAgent,

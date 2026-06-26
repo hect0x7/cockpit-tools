@@ -23,9 +23,11 @@ const EXTENSION_SECRET_STORAGE_KEYS: [&str; 2] = [
     "antigravity.autoTrigger.credentials",
     "antigravity.autoTrigger.credential",
 ];
-const EXTENSION_SECRET_STORAGE_EXTENSION_IDS: [&str; 2] = [
+const EXTENSION_SECRET_STORAGE_EXTENSION_IDS: [&str; 4] = [
     "jlcodes.antigravity-cockpit",
     "jlcodes99.antigravity-cockpit",
+    "hect0x7.antigravity-cockpit",
+    "hect0x79.antigravity-cockpit",
 ];
 
 #[derive(Debug, Deserialize)]

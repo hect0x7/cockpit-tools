@@ -2,10 +2,10 @@
 
 [English](README.en.md)  · Portuguese (BR) · [简体中文](README.md)
 
-[![GitHub stars](https://img.shields.io/github/stars/jlcodes99/cockpit-tools?style=flat&color=gold)](https://github.com/jlcodes99/cockpit-tools)
-[![GitHub downloads](https://img.shields.io/github/downloads/jlcodes99/cockpit-tools/total?style=flat&color=blue)](https://github.com/jlcodes99/cockpit-tools/releases)
-[![GitHub release](https://img.shields.io/github/v/release/jlcodes99/cockpit-tools?style=flat)](https://github.com/jlcodes99/cockpit-tools/releases)
-[![GitHub issues](https://img.shields.io/github/issues/jlcodes99/cockpit-tools)](https://github.com/jlcodes99/cockpit-tools/issues)
+[![GitHub stars](https://img.shields.io/github/stars/hect0x7/cockpit-tools?style=flat&color=gold)](https://github.com/hect0x7/cockpit-tools)
+[![GitHub downloads](https://img.shields.io/github/downloads/hect0x7/cockpit-tools/total?style=flat&color=blue)](https://github.com/hect0x7/cockpit-tools/releases)
+[![GitHub release](https://img.shields.io/github/v/release/hect0x7/cockpit-tools?style=flat)](https://github.com/hect0x7/cockpit-tools/releases)
+[![GitHub issues](https://img.shields.io/github/issues/hect0x7/cockpit-tools)](https://github.com/hect0x7/cockpit-tools/issues)
 
 Uma **ferramenta universal de gerenciamento de contas para IDEs de IA**, atualmente compatível com **Antigravity IDE**, **Codex**, **GitHub Copilot**, **Windsurf**, **Kiro**, **Cursor**, **Gemini Cli**, **CodeBuddy**, **CodeBuddy CN**, **Qoder**, **Trae** e **Zed**, com fluxos de trabalho paralelos em múltiplas instâncias.
 
@@ -294,7 +294,7 @@ Observações:
 
 ### Opção A: Download Manual (Recomendado)
 
-Acesse a [página de lançamentos do GitHub](https://github.com/jlcodes99/cockpit-tools/releases) para baixar o pacote para o seu sistema:
+Acesse a [página de lançamentos do GitHub](https://github.com/hect0x7/cockpit-tools/releases) para baixar o pacote para o seu sistema:
 
 *   **macOS**: `.dmg` (Apple Silicon & Intel)
 *   **Windows**: `.msi` (Recommended) or `.exe`
@@ -306,7 +306,7 @@ Acesse a [página de lançamentos do GitHub](https://github.com/jlcodes99/cockpi
 
 
 ```bash
-brew tap jlcodes99/cockpit-tools https://github.com/jlcodes99/cockpit-tools
+brew tap hect0x7/cockpit-tools https://github.com/hect0x7/cockpit-tools
 brew install --cask cockpit-tools
 ```
 
@@ -375,7 +375,7 @@ npm run tauri build
 
 ## Histórico do Star
 
-[![Gráfico do Histórico do Star](https://api.star-history.com/svg?repos=jlcodes99/cockpit-tools&type=Date)](https://star-history.com/#jlcodes99/cockpit-tools&Date)
+[![Gráfico do Histórico do Star](https://api.star-history.com/svg?repos=hect0x7/cockpit-tools&type=Date)](https://star-history.com/#hect0x7/cockpit-tools&Date)
 
 ---
 

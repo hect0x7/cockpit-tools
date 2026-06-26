@@ -12263,12 +12263,6 @@ export function CodexAccountsPage() {
                                   preset.name,
                                 )}
                               </span>
-                              {preset.isPartner && (
-                                <Star
-                                  size={12}
-                                  className="api-provider-chip-badge"
-                                />
-                              )}
                             </button>
                           ))}
                         </div>
@@ -13298,12 +13292,6 @@ export function CodexAccountsPage() {
                                 preset.name,
                               )}
                             </span>
-                            {preset.isPartner && (
-                              <Star
-                                size={12}
-                                className="api-provider-chip-badge"
-                              />
-                            )}
                           </button>
                         ))}
                       </div>
