@@ -1,5 +1,5 @@
 import type { TopRightAdState } from '../types/topRightAd';
 
 export async function getTopRightAdState(): Promise<TopRightAdState> {
-  return { ad: null };
+  return { ad: null, ads: [] };
 }
